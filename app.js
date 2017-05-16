@@ -2,17 +2,16 @@
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const http = require('http');
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const passport = require('passport');
 const log = require('./lib/logger');
 
 // Load environment variables
 require('dotenv').load();
 
-var app = express();
+const app = express();
+
 app.use(express.static(__dirname + '/public'));
 
 app.use(function(req, res, next) {
@@ -38,19 +37,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret: process.env.SECRET }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
-var port = process.env.PORT || '3000';
+const port = process.env.PORT || '3000';
 app.set('port', port);
 log.i("Starting web server on port: [" + port + "]");
 
-var server = http.createServer(app);
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+app.listen(port);
+app.on('error', onError);
+app.on('listening', onListening);
 
 
 // Event listener for HTTP server "error" event.
