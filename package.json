@@ -21,7 +21,7 @@
     "winston": "^1.0.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "dev": "webpack -d --watch",
     "build" : "webpack -p"
   }
