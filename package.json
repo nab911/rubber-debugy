@@ -13,6 +13,8 @@
     "dotenv": "^0.5.1",
     "express": "^4.12.0",
     "express-session": "^1.11.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "less": "^2.7.2",
     "moment": "^2.10.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -23,6 +25,12 @@
   "scripts": {
     "start": "node app.js",
     "dev": "webpack -d --watch",
-    "build" : "webpack -p"
+    "build": "webpack -p --config webpack.config.prod.js"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.28.1",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.17.0"
   }
 }

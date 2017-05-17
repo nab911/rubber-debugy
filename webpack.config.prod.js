@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ETP = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -18,16 +18,21 @@ const config = {
   module : {
     loaders : [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR+'/app',
+        test: /\.jsx$/,
         loader: 'babel-loader'
       },
       {
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader"
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ["css-loader", "less-loader"]
+        })
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("styles.css") //Extract to styles.css file
+  ]
 };
 
 module.exports = config;
