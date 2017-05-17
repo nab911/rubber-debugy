@@ -12,14 +12,14 @@ const config = {
   ],
   output: {
     path: BUILD_DIR,
+    publicPath: '/public',
     filename: 'bundle.js'
   },
   devtool: 'source-map',
   module : {
     loaders : [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR+'/app',
+        test: /\.jsx$/,
         loader: 'babel-loader'
       },
       {

@@ -24,13 +24,16 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "webpack -d --watch",
+    "dev-client": "webpack-dev-server --port 8080",
+    "dev-server": "nodemon app.js",
     "build": "webpack -p --config webpack.config.prod.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "css-loader": "^0.28.1",
     "less-loader": "^4.0.3",
-    "style-loader": "^0.17.0"
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.17.0",
+    "webpack-dev-server": "^2.4.5"
   }
 }
