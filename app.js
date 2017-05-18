@@ -36,11 +36,11 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(session({ secret: process.env.SECRET }));
+app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
-const port = process.env.PORT || '3000';
+const port = process.env.API_PORT || '3000';
 app.set('port', port);
 log.i("Starting web server on port: [" + port + "]");
 
