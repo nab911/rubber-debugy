@@ -3,6 +3,7 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+const http = require('http');
 const session = require('express-session');
 const cors = require('cors');
 const log = require('./lib/logger');
@@ -41,13 +42,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
 const port = process.env.API_PORT || '3000';
-app.set('port', port);
-log.i("Starting web server on port: [" + port + "]");
-
-app.listen(port);
-app.on('error', onError);
-app.on('listening', onListening);
-
+const server = http.createServer(app);
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 // Event listener for HTTP server "error" event.
 function onError(error) {
