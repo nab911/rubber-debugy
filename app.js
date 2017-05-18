@@ -12,7 +12,7 @@ require('dotenv').load();
 
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/build'));
 
 app.use(function(req, res, next) {
   // Response wrapper functions
@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: false }));
+app.use(session({ secret: process.env.SECRET, resave: false, saveUninitialized: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
