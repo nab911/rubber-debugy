@@ -16,9 +16,16 @@ chatbot.train("chatterbot.corpus.english")
 
 app = Flask(__name__)
 
-@app.route('/<string:name>', methods=['GET'])
-def index(name):
-  return 'Hello ' + name
+@app.route('/api/chat/<string:message>', methods=['GET'])
+def index(message):
+  reply = chatbot.get_response(message)
+  print 'Reply: ' + str(reply.text)
+
+  response = {
+    'reply': reply.text
+  }
+
+  return jsonify({'response': response}), 200
 
 @app.route('/api/chat/message', methods=['POST'])
 def message():
@@ -35,7 +42,7 @@ def message():
     'reply': reply.text
   }
 
-  return jsonify({'response': response}), 201
+  return jsonify({'response': response}), 200
 
 
 @app.errorhandler(400)

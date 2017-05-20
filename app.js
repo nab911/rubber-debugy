@@ -8,6 +8,9 @@ const session = require('express-session');
 const cors = require('cors');
 const log = require('./lib/logger');
 
+// Routes
+const api = require('./routes/api');
+
 // Load environment variables
 require('dotenv').load();
 
@@ -34,6 +37,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -41,6 +45,10 @@ app.use(session({ secret: process.env.SECRET, resave: false, saveUninitialized: 
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
+
+app.use('/api', api);
+
+// Start the Server
 const port = process.env.API_PORT || '3000';
 const server = http.createServer(app);
 server.listen(port);

@@ -3,7 +3,13 @@
 }
 
 .App-header {
+  text-align: center;
+}
 
+.Duck {
+  margin: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .App-intro {
