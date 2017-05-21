@@ -9,11 +9,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="App-header col-md-6 col-xs-12">
           <Duck />
         </div>
 
-        <div className="App-body">
+        <div className="App-body col-md-6 col-xs-12">
           <ChatInput />
           <ChatList />
         </div>

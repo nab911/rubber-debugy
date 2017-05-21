@@ -5,7 +5,7 @@ class Duck extends Component {
   render() {
     return (
       <div className="Duck">
-        <img alt="Rubber Duck" width="400" src="/img/rubber-duck-glasses-512.png" />
+        <img alt="Rubber Duck" src="/img/rubber-duck-glasses-512.png" />
       </div>
     );
   }

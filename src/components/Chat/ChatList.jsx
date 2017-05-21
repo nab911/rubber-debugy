@@ -14,11 +14,9 @@ class ChatListImpl extends Component {
   render() {
     return (
       <div className="ChatList col-md-8 col-md-offset-2">
-        <ul>
-          {this.props.messages.map((message, idx) =>
-            <li key={idx} className={ message.message_type+"-message" }>{message.text}</li>
-          )}
-        </ul>
+        {this.props.messages.map((message, idx) =>
+          <div key={idx} className={ message.message_type+"-message bubble" }>{message.text}</div>
+        )}
       </div>
     );
   }

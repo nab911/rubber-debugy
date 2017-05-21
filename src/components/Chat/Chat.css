@@ -7,12 +7,63 @@
 .ChatInput {
   border: 0;
   border-bottom: 1 solid #666;
+  margin-bottom: 15px;
+}
+
+.ChatList{
+  max-height: 400px;
+  overflow: hidden;
+  content: "";
+  position: relative;
+}
+
+.ChatList:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background: linear-gradient(transparent 350px, white);
 }
 
 .duck-message {
-  color: red;
+  color: #fff;
+  background: #0080c0;
+  border-right-color: #0080c0;
 }
 
 .user-message {
-  color: green;
+  color: #fff;
+  background: #05ab49;
+  border-right-color: transparent;
+}
+
+.bubble {
+  position: relative;
+  border-radius: .4em;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 18px solid transparent;
+  border-right-color: inherit;
+  border-left: 0;
+  // border-bottom: 0;
+  margin-top: -18px;
+  margin-left: -10px;
+}
+
+@media (max-width: 991px) {
+  .duck-message {
+    border-right-color: transparent;
+  }
 }

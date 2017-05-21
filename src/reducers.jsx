@@ -10,15 +10,15 @@ const rubberDebugy = (state = initialState, action) => {
     case 'ADD_DUCK_MESSAGE':
       return Object.assign({}, state, {
         messages: [
-          ...state.messages,
-          {text: action.text, message_type: 'duck'}
+          {text: action.text, message_type: 'duck'},
+          ...state.messages
         ]
       })
     case 'ADD_USER_MESSAGE':
       return Object.assign({}, state, {
         messages: [
-          ...state.messages,
-          {text: action.text, message_type: 'user'}
+          {text: action.text, message_type: 'user'},
+          ...state.messages
         ],
       })
     default:
