@@ -8,11 +8,11 @@ import rubberDebugy from './reducers'
 import App from './App';
 import './index.css';
 
-let store = createStore(rubberDebugy)
+let store = createStore(rubberDebugy);
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('app')
 );

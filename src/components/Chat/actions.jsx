@@ -1,13 +1,9 @@
-export const addDuckMessage = (text) => {
+export const addMessage = (message, type) => {
   return {
-    type: 'ADD_DUCK_MESSAGE',
-    text: text
-  }
-}
-
-export const addUserMessage = (text) => {
-  return {
-    type: 'ADD_USER_MESSAGE',
-    text: text
-  }
-}
+    type: 'ADD_MESSAGE',
+    payload: {
+    	text: message,
+    	type: type
+    }
+  };
+};

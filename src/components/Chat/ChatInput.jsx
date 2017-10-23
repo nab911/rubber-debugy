@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 import './Chat.css';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, actions) {
   return {}
 }
 
-class ChatInputImpl extends Component {
+class ChatInput extends Component {
   render() {
     return (
       <div className="ChatInput col-md-8 col-md-offset-2">
@@ -29,7 +29,7 @@ class ChatInputImpl extends Component {
       let message = this.refs.chatInput.value;
       let self = this;
 
-      self.props.addUserMessage(message);
+      self.props.addMessage(message, 'user');
 
       fetch('/api/message', {
         method: 'POST',
@@ -40,14 +40,10 @@ class ChatInputImpl extends Component {
       }).then((result) => {
         return result.json();
       }).then((result) => {
-        self.props.addDuckMessage(result.data.response.reply);
-      })
+        self.props.addMessage(result.data.response.reply, 'duck');
+      });
     }
   }
 }
 
-const ChatInput = connect(
-  mapStateToProps,
-  actions
-)(ChatInputImpl);
-export default ChatInput;
+export default connect(mapStateToProps, actions)(ChatInput);

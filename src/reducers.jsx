@@ -1,29 +1,19 @@
-const initialState = {
-  messages: []
-};
+import { combineReducers } from 'redux';
 
-const rubberDebugy = (state = initialState, action) => {
-  console.log('Action receieved:');
-  console.log(action);
-  console.log(state);
-  switch (action.type) {
-    case 'ADD_DUCK_MESSAGE':
-      return Object.assign({}, state, {
-        messages: [
-          {text: action.text, message_type: 'duck'},
-          ...state.messages
-        ]
-      })
-    case 'ADD_USER_MESSAGE':
-      return Object.assign({}, state, {
-        messages: [
-          {text: action.text, message_type: 'user'},
-          ...state.messages
-        ],
-      })
-    default:
-      return state
+const messages = (state = [], action) => {
+  // console.log('Action receieved:');
+  // console.log(action);
+  // console.log(state);
+  if (action.type === 'ADD_MESSAGE') {
+    return [
+      {text: action.payload.text, message_type: action.payload.type},
+      ...state
+    ];
   }
+
+  return state;
 }
 
-export default rubberDebugy
+const rootReducer = combineReducers({ messages: messages });
+
+export default rootReducer

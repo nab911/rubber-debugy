@@ -3,9 +3,24 @@ Rubber Duck Debugging Service
 
 ### Setup
 Install mongoDB, python, nodejs
-pip install chatterbox flask
-npm install
 
+`pip install chatterbot flask`
+
+`npm install`
+
+Copy `.env.dist` to `.env` and fill out the proper settings
+
+### To Run
+Ensure MongoDB is running.
+
+## Dev
 `python python/chatbot.py`
 
-`node app.js`
+`npm run dev-server`
+
+`npm run dev-client`
+
+## Prod
+`python python/chatbot.py`
+
+`npm run start`
