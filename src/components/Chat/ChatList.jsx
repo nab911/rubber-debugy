@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 import './Chat.css';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, actions) {
   return {
     messages: state.messages
   }
 }
 
-class ChatListImpl extends Component {
+class ChatList extends Component {
   render() {
     return (
       <div className="ChatList col-md-8 col-md-offset-2">
@@ -22,8 +22,4 @@ class ChatListImpl extends Component {
   }
 }
 
-const ChatList = connect(
-  mapStateToProps,
-  actions
-)(ChatListImpl);
-export default ChatList;
+export default connect(mapStateToProps,actions)(ChatList);

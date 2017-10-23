@@ -8,7 +8,10 @@ Install mongoDB, python, nodejs
 
 `npm install`
 
+Copy `.env.dist` to `.env` and fill out the proper settings
+
 ### To Run
+Ensure MongoDB is running.
 
 ## Dev
 `python python/chatbot.py`
