@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 import './Chat.css';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, actions) {
   return {}
 }
 
@@ -41,7 +41,7 @@ class ChatInputImpl extends Component {
         return result.json();
       }).then((result) => {
         self.props.addDuckMessage(result.data.response.reply);
-      })
+      });
     }
   }
 }
