@@ -13,6 +13,8 @@ Copy `.env.dist` to `.env` and fill out the proper settings
 ### To Run
 Ensure MongoDB is running.
 
+In separate terminals run:
+
 ## Dev
 `python python/chatbot.py`
 

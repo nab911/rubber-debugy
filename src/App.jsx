@@ -10,12 +10,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header col-md-6 col-xs-12">
-          <Duck />
+
         </div>
 
-        <div className="App-body col-md-6 col-xs-12">
-          <ChatInput />
-          <ChatList />
+        <div className="App-body col-xs-12">
+          <div className="col-md-6 col-xs-12">
+            <Duck />
+          </div>
+          <div className="col-md-6 col-xs-12">
+            <ChatInput />
+            <ChatList />
+          </div>
         </div>
       </div>
     );

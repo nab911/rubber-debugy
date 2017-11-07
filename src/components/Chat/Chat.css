@@ -10,7 +10,7 @@
   margin-bottom: 15px;
 }
 
-.ChatList{
+.ChatList {
   max-height: 400px;
   overflow: hidden;
   content: "";
@@ -18,7 +18,7 @@
 }
 
 .ChatList:before {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
@@ -42,13 +42,13 @@
 
 .bubble {
   position: relative;
-  border-radius: .4em;
+  border-radius: 0.4em;
   margin-bottom: 10px;
   padding: 8px;
 }
 
 .bubble:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;

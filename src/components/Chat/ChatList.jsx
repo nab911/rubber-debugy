@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import * as actions from './actions';
-import './Chat.css';
+import "./Chat.css";
 
-function mapStateToProps(state, actions) {
+function mapStateToProps(state) {
   return {
     messages: state.messages
-  }
+  };
 }
 
-class ChatList extends Component {
-  render() {
-    return (
-      <div className="ChatList col-md-8 col-md-offset-2">
-        {this.props.messages.map((message, idx) =>
-          <div key={idx} className={ message.message_type+"-message bubble" }>{message.text}</div>
-        )}
+const ChatList = props => (
+  <div className="ChatList col-md-8 col-md-offset-2">
+    {props.messages.map(message => (
+      <div key={message.id} className={`${message.message_type}-message bubble`}>
+        {message.text}
       </div>
-    );
-  }
-}
+    ))}
+  </div>
+);
 
-export default connect(mapStateToProps,actions)(ChatList);
+export default connect(mapStateToProps)(ChatList);
