@@ -14,8 +14,7 @@ module.exports = {
     "object-shorthand": [0],
     "comma-dangle": [0],
     "react/prop-types": [0],
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "max-len": 120
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }]
   },
   extends: "airbnb"
 };
