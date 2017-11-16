@@ -8,6 +8,8 @@ Install mongoDB, python, nodejs
 
 `npm install`
 
+`npm run build`
+
 Copy `.env.dist` to `.env` and fill out the proper settings
 
 ### To Run

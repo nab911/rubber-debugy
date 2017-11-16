@@ -21,3 +21,11 @@
 .App-intro {
   font-size: large;
 }
+
+.App-footer {
+  padding: 50px;
+}
+
+.App-footer img.github-octocat {
+  height: 50px;
+}
