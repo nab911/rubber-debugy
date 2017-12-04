@@ -25,13 +25,14 @@ class ChatInput extends Component {
         headers: {
           "Content-Type": "application/json"
         },
+        credentials: "same-origin",
         body: JSON.stringify({ message })
       })
         .then(result => result.json())
         .then(result => {
           self.chatInput.value = "";
           self.chatInput.focus();
-          self.props.addMessage(result.data.response.reply, "duck");
+          self.props.addMessage(result.response.reply, "duck");
         });
     }
   }

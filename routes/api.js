@@ -8,19 +8,21 @@ const router = express.Router();
 const log = require("../lib/logger");
 
 router.post("/message", (req, res) => {
-  // log.d('Received announce');
   const data = req.body;
 
   if (data.message) {
     request
       .getAsync({
-        uri: `${process.env.CHAT_URL}/api/chat/${data.message}`
+        url: `${process.env.CHAT_URL}/api/chat/${data.message}`,
+        headers: req.headers
       })
       .then(response => {
         if (response.statusCode === 200) {
           const reply = JSON.parse(response.body);
-
-          res.success(reply);
+          if (response.headers["set-cookie"]) {
+            res.header("set-cookie", response.headers["set-cookie"]);
+          }
+          res.status(200).send(reply);
         }
       })
       .catch(err => {
@@ -28,7 +30,7 @@ router.post("/message", (req, res) => {
       });
   } else {
     log.e(`No message specified`);
-    res.error("No message specified");
+    res.status(422).send("No message specified");
   }
 });
 

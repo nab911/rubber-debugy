@@ -18,25 +18,6 @@ const port = process.env.API_PORT || "3000";
 
 app.use(express.static(`${__dirname}/build`));
 
-app.use((req, res, next) => {
-  // Response wrapper functions
-  res.success = data => {
-    res.send({
-      success: true,
-      data: data
-    });
-  };
-
-  res.error = data => {
-    res.send({
-      success: false,
-      data: data
-    });
-  };
-
-  next();
-});
-
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
