@@ -9,6 +9,10 @@ function mapStateToProps() {
 }
 
 class ChatInput extends Component {
+  componentDidMount() {
+    this.chatInput.focus();
+  }
+
   handleKeyPress(e) {
     if (e.key === "Enter") {
       const message = this.chatInput.value;
@@ -25,6 +29,8 @@ class ChatInput extends Component {
       })
         .then(result => result.json())
         .then(result => {
+          self.chatInput.value = "";
+          self.chatInput.focus();
           self.props.addMessage(result.data.response.reply, "duck");
         });
     }
