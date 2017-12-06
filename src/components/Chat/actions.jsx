@@ -6,4 +6,12 @@ export const addMessage = (message, type) => ({
   }
 });
 
+export const feedbackNeeded = () => ({
+  type: "FEEDBACK_NEEDED"
+});
+
+export const feedbackGiven = () => ({
+  type: "FEEDBACK_GIVEN"
+});
+
 export default "";

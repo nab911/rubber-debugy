@@ -10,6 +10,7 @@
     "dotenv": "^0.5.1",
     "express": "^4.12.0",
     "express-session": "^1.11.3",
+    "lodash": "^4.17.4",
     "moment": "^2.10.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

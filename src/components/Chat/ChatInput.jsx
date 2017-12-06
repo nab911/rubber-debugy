@@ -33,6 +33,7 @@ class ChatInput extends Component {
           self.chatInput.value = "";
           self.chatInput.focus();
           self.props.addMessage(result.response.reply, "duck");
+          self.props.feedbackNeeded();
         });
     }
   }

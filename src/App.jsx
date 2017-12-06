@@ -1,5 +1,6 @@
 import React from "react";
 import Duck from "./components/Duck";
+import ChatFeedback from "./components/Chat/ChatFeedback";
 import ChatInput from "./components/Chat/ChatInput";
 import ChatList from "./components/Chat/ChatList";
 
@@ -14,6 +15,7 @@ const App = () => (
         <Duck />
       </div>
       <div className="col-md-6 col-xs-12">
+        <ChatFeedback />
         <ChatInput />
         <ChatList />
       </div>

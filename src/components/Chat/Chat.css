@@ -4,6 +4,22 @@
   margin-right: auto;
 }
 
+.ChatFeedback {
+  color: #999;
+  margin-bottom: 15px;
+  min-height: 21px;
+  z-index: 2;
+}
+
+.ChatFeedback span {
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+.ChatFeedback:hover {
+  cursor: pointer;
+}
+
 .ChatInput {
   border: 0;
   border-bottom: 1 solid #666;
@@ -44,6 +60,7 @@
   position: relative;
   border-radius: 0.4em;
   margin-bottom: 10px;
+  min-height: 36px;
   padding: 8px;
 }
 
@@ -57,7 +74,6 @@
   border: 18px solid transparent;
   border-right-color: inherit;
   border-left: 0;
-  // border-bottom: 0;
   margin-top: -18px;
   margin-left: -10px;
 }

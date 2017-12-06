@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 const ChatList = props => (
   <div className="ChatList col-md-8 col-md-offset-2">
     {props.messages.map(message => (
-      <div key={message.id} className={`${message.message_type}-message bubble`}>
+      <div key={message.id} className={`${message.type}-message bubble`}>
         {message.text}
       </div>
     ))}
