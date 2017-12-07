@@ -11,17 +11,14 @@ chatbot = ChatBot(
     input_adapter="chatterbot.input.VariableInputTypeAdapter"
 )
 
+# Export all trained data
+chatbot.trainer.export_for_training('./current_export.json')
+
 # Flush the DB
-#chatbot.storage.drop()
+chatbot.storage.drop()
 
 # Train based on the english corpus
 #print 'Training...'
-#chatbot.train("chatterbot.corpus.english.conversations")
-#chatbot.train("./python/corpus/custom_corpus.yml")
-
-# Export all trained data
-#chatbot.trainer.export_for_training('./my_export.json')
-
-input = chatbot.input.process_input_statement('Hello')
-reply = chatbot.generate_response(input, chatbot.default_conversation_id)
-print str(reply)
+chatbot.train("chatterbot.corpus.english.conversations")
+chatbot.train("./python/corpus/javascript_debugging.json")
+chatbot.train("./current_export.json")

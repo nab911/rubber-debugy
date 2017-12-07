@@ -1,0 +1,27 @@
+{
+  "categories": ["javascript"],
+  "conversations": [
+    [
+      "It is not working",
+      "Step through the code, explaining each step",
+      "Did that",
+      "Try reapplying each change, narrowing down which file caused this"
+    ],
+    [
+      "It is not working",
+      "Are there any syntax errors?",
+      "Yes",
+      "Have you ran npm install?",
+      "Yes",
+      "Have you tried restarting the app?",
+      "Yes"
+    ],
+    ["I am having a problem", "What seems to be the issue?", "I am getting a 500"],
+    [
+      "I am getting a 500",
+      "Have you tried stashing your changes and start from master?",
+      "Yes",
+      "Try reapplying each change, narrowing down which file caused this"
+    ]
+  ]
+}
