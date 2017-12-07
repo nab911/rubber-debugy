@@ -8,9 +8,9 @@ chatbot = get_chatbot()
 @chat_route.route('/api/chat/<string:message>', methods=['GET'])
 def get_message(message):
   set_session()
-  response = get_chat_reply(message)
+  response = handle_input(message)
 
-  return make_response(jsonify({'response': response}), 200)
+  return make_response(jsonify(response), 200)
 
 @chat_route.route('/api/chat/message', methods=['POST'])
 def post_message():
@@ -20,10 +20,16 @@ def post_message():
   
   set_session()
 
-  message = data['message']  
-  response = get_chat_reply(message)
+  message = data['message']
+  response = handle_input(message)
 
-  return make_response(jsonify({'response': response}), 200)
+  return make_response(jsonify(response), 200)
+
+def handle_input(message):
+  if message in commands.keys():
+    return commands[message]()
+
+  return get_chat_reply(message)
 
 def get_chat_reply(message):
   #print 'Received message: ' + message + ' for session: ' + session['session_id']
@@ -32,8 +38,19 @@ def get_chat_reply(message):
   statement, reply = chatbot.generate_response(input, session['session_id'])
 
   #print 'Reply: ' + str(reply.text)
-  response = {
+  return {
     'input': message,
     'reply': reply.text
   }
-  return response
+
+def restart():
+  session.pop('session_id', None)
+  
+  return {
+    'reply': "Ok, let's start over",
+    'is_command': 1
+  }
+
+commands = {
+  'restart': restart
+}

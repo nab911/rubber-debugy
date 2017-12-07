@@ -6,8 +6,11 @@ export const addMessage = (message, type) => ({
   }
 });
 
-export const feedbackNeeded = () => ({
-  type: "FEEDBACK_NEEDED"
+export const feedbackNeeded = isCommand => ({
+  type: "FEEDBACK_NEEDED",
+  payload: {
+    isCommand
+  }
 });
 
 export const feedbackGiven = () => ({

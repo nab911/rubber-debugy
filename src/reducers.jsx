@@ -23,7 +23,7 @@ const feedback = (state = { feedback_needed: false, feedback_given: false }, act
   if (action.type === "FEEDBACK_NEEDED") {
     return {
       ...state,
-      feedback_needed: true
+      feedback_needed: !action.payload.isCommand
     };
   }
 
