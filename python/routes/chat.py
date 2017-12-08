@@ -1,3 +1,4 @@
+from sys import argv
 from lib.helpers import set_session 
 from flask import Flask, Blueprint, session, jsonify, make_response, request, abort
 from lib.chat_engine import get_chatbot
@@ -34,8 +35,11 @@ def handle_input(message):
 def get_chat_reply(message):
   #print 'Received message: ' + message + ' for session: ' + session['session_id']
 
-  input = chatbot.input.process_input_statement(message)
-  statement, reply = chatbot.generate_response(input, session['session_id'])
+  if 'save_chat' in argv:
+    reply = chatbot.get_response(message)
+  else:
+    input = chatbot.input.process_input_statement(message)
+    statement, reply = chatbot.generate_response(input, session['session_id'])
 
   #print 'Reply: ' + str(reply.text)
   return {

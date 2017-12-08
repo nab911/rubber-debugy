@@ -19,6 +19,6 @@ chatbot.storage.drop()
 
 # Train based on the english corpus
 #print 'Training...'
-chatbot.train("chatterbot.corpus.english.conversations")
+#chatbot.train("chatterbot.corpus.english.conversations")
 chatbot.train("./python/corpus/javascript_debugging.json")
-chatbot.train("./current_export.json")
+#chatbot.train("./current_export.json")
