@@ -35,7 +35,7 @@ def handle_input(message):
 def get_chat_reply(message):
   #print 'Received message: ' + message + ' for session: ' + session['session_id']
 
-  if 'save_chat' in argv:
+  if 'enable_learning' in argv:
     reply = chatbot.get_response(message)
   else:
     input = chatbot.input.process_input_statement(message)
