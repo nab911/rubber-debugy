@@ -46,13 +46,13 @@
 
 .duck-message {
   color: #fff;
-  background: #0080c0;
-  border-right-color: #0080c0;
+  background: #05ab49;
+  border-right-color: #05ab49;
 }
 
 .user-message {
   color: #fff;
-  background: #05ab49;
+  background: #0080c0;
   border-right-color: transparent;
 }
 
